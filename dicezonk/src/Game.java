@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Game {
-    int winGameScore = 2000;
+    int winGameScore;
     int numberOfPlayers;
     boolean hasWinner = false;
     ArrayList<Player> players;
