@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        Game game;
 
         while (true) {
             printMenu();
@@ -18,31 +20,25 @@ public class Main {
                     System.out.println("введите количество игроков");
                     int numberOfPlayers = scanner.nextInt();
                     scanner.nextLine();
-                    Game game = new Game(newWinScore, numberOfPlayers);
 
-                    for (int i = 0; i < numberOfPlayers; i++) {
+                    game = new Game(newWinScore, numberOfPlayers, scanner);
+
+                    for (int i = 0; i < numberOfPlayers; i++) {    // в цикле создаем список игроков с именами
                         System.out.print("Введите имя " + (i + 1) + "го игрока _");
-                        String name =  scanner.nextLine();
+                        String name = scanner.nextLine();
                         game.setPlayersName(name);
                     }
 
-
-
-
-
-
-
+                    game.startGame();
 
                     break;
                 case "0":
                     return;
                 default:
-                    System.out.println("Ошибка, вы ввели " + cmd );
+                    System.out.println("Ошибка, вы ввели " + cmd);
                     break;
             }
-
         }
-
     }
 
     public static void printMenu() {
@@ -54,9 +50,17 @@ public class Main {
         System.out.println("_".repeat(20));
     }
 
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
